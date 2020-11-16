@@ -13,4 +13,8 @@
  *= require_tree .
  *= require_self
  */
+.vendor-cards {
+  padding: 25px 25px;
+}
+
 @import 'bootstrap.min'
