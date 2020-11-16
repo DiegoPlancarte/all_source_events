@@ -2,6 +2,7 @@ import React from "react"
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import TopBar from "./shared/TopBar"
+import AllVendors from "./vendors/AllVendors";
 
 class App extends React.Component {
   render () {
@@ -12,7 +13,7 @@ class App extends React.Component {
       sign_out_route,
       sign_up_route,
       edit_account_route,
-      token
+      csrf_token
     } = this.props
     return (
       <React.Fragment>
@@ -20,6 +21,7 @@ class App extends React.Component {
           <TopBar sign_in_route={ sign_in_route } sign_up_route={ sign_up_route } logged_in={ logged_in } sign_out_route={ sign_out_route } edit_account={ edit_account_route } />
 
           <Switch>
+            <Route path="/allvendors" render={(props) => <AllVendors {...props} /> }/>
           </Switch>
         </Router>
       </React.Fragment>
