@@ -83,3 +83,4 @@ production:
   database: all_source_events_production
   username: all_source_events
   password: <%= ENV['ALL_SOURCE_EVENTS_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import useRead from '../hooks/useRead'
 import { Container, Row, Col, Card, Button, Spinner } from 'react-bootstrap';
 
-const AllVendors = () => {
+const AllVendors = (props) => {
 
   const [ vendors, setVendors, vendorsLoading, vendorErrors ] = useRead('vendors')
 
@@ -14,6 +14,16 @@ const AllVendors = () => {
 
   if (vendorsLoading) {
     return <div><Spinner animation="border" variant="primary" />Loading...</div>
+  }
+
+  const detailsButton = () => {
+    if (props.logged_in) {
+      return (
+        <Link to={`/vendorinfo/${v.id}`} className="text-white btn btn-primary">Details</Link>
+      )
+    } return (
+        <Button className="text-white btn btn-primary" href={props.sign_in_route}>Details</Button>
+      )
   }
 
   return (
@@ -41,9 +51,7 @@ const AllVendors = () => {
                       <Card.Body>
                         <Card.Title><strong>{v.name}</strong></Card.Title>
                         <Card.Text>{v.category}</Card.Text>
-                        <Link to={`/vendorinfo/${v.id}`} >
-                          <Button className="text-white">Details</Button>
-                        </Link>
+                        { detailsButton() }
                       </Card.Body>
                       <Card.Footer>{v.city}, {v.state} {v.zip}</Card.Footer>
                     </Card>

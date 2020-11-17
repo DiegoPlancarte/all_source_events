@@ -1,6 +1,7 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
+import UserTopBar from "./shared/UserTopBar"
 import TopBar from "./shared/TopBar"
 import Dashboard from "./vendors/Dashboard";
 import AllVendors from "./vendors/AllVendors";
@@ -24,11 +25,12 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Router>
-          <TopBar sign_in_route={ sign_in_route } sign_up_route={ sign_up_route } logged_in={ logged_in } sign_out_route={ sign_out_route } edit_account={ edit_account_route } />
+          { logged_in && <UserTopBar sign_in_route={ sign_in_route } sign_up_route={ sign_up_route } logged_in={ logged_in } sign_out_route={ sign_out_route } edit_account={ edit_account_route } />}
+          { !logged_in && <TopBar sign_in_route={ sign_in_route } sign_up_route={ sign_up_route } logged_in={ logged_in } sign_out_route={ sign_out_route } edit_account={ edit_account_route } />}
 
           <Switch>
             <Route path = '/dashboard' render={(props) => <Dashboard {...props} current_user={ current_user } /> }/>
-            <Route path = '/allvendors' render={(props) => <AllVendors {...props} /> }/>
+            <Route path = '/allvendors' render={(props) => <AllVendors {...props} logged_in={ logged_in } sign_in_route={ sign_in_route } /> }/>
             <Route path = '/myvendors' render={(props) => <MyVendors {...props} current_user={ current_user } /> } />
             <Route path = '/myfavorites' render={(props) => <MyFavorites {...props} current_user={ current_user } /> } />
             <Route path = '/vendorinfo/:id' render={(props) => <VendorInfo {...props} current_user= { current_user } csrf_token={ csrf_token } /> }/>
