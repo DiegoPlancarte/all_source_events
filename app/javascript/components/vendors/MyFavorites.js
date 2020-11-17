@@ -24,7 +24,7 @@ const MyFavorites = (props) => {
   return (
     <React.Fragment>
         <Container>
-          <h1 className="text-primary" id="header">My Vendors</h1>
+          <h1 className="text-primary" id="header">My Favorites</h1>
           <hr/>
           <Row md="1" lg="2" xl="3">
             {favoritesList.map((v,i)=> {

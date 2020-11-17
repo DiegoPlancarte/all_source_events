@@ -20,6 +20,7 @@ const TopBar = (props) => {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
+          <Nav.Link href="/dashboard">Dashboard</Nav.Link>
           <Nav.Link href="/allvendors">All Vendors</Nav.Link>
           <Nav.Link href="/myvendors">My Vendors</Nav.Link>
           <Nav.Link href="/createvendor">Create Vendor</Nav.Link>
