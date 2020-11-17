@@ -12,7 +12,7 @@ const useCreate = ( url, props, redirectTo ) => {
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
-        'X-CSRF-TOKEN': props.token
+        'X-CSRF-TOKEN': props.csrf_token
       },
       method: 'POST'
     })

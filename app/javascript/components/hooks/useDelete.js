@@ -11,7 +11,7 @@ const useUpdate = ( url, props, redirectTo ) => {
     return fetch(`/${url}`, {
       headers: {
         'Content-Type': 'application/json',
-        'X-CSRF-TOKEN': props.token
+        'X-CSRF-TOKEN': props.csrf_token
       },
       method: 'DELETE'
     })
