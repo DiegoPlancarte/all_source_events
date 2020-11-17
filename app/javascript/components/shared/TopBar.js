@@ -21,6 +21,7 @@ const TopBar = (props) => {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="/allvendors">All Vendors</Nav.Link>
+          <Nav.Link href="/myvendors">My Vendors</Nav.Link>
           <Nav.Link href="/createvendor">Create Vendor</Nav.Link>
           <NavDropdown title="Favorites" id="collasible-nav-dropdown">
             <NavDropdown.Item href="/my_favorites">All Favorite</NavDropdown.Item>
