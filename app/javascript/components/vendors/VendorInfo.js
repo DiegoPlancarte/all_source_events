@@ -99,7 +99,7 @@ const VendorInfo = (props) => {
                   <div className="text-center">
                   <Link to="/allvendors" className= "btn btn-danger" onClick={ deleteVendor } >Delete Listing</Link>
                   &nbsp;
-                  <Link to={`/editvendor/${vendor.id}`} className= "btn btn-info">Edit Listing</Link>
+                  <Link to={`/updatevendor/${vendor.id}`} className= "btn btn-info">Edit Listing</Link>
                   </div>
                 }
                 </div>

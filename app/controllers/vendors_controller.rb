@@ -65,6 +65,7 @@ class VendorsController < ApplicationController
                                     :phone,
                                     :email,
                                     :user_id,
+                                    :id,
                                     :created_at,
                                     :updated_at)
     end
