@@ -49,7 +49,7 @@ const CreateVendor = (props) => {
                 value={ vendor.category }
                 placeholder="Select an option">
                   <option defaultValue>Chose Type</option>
-                  <option value="Catering">Catering</option>
+                  <option value="Caterer">Caterer</option>
                   <option value="Venue">Venue</option>
                   <option value="Florist">Florist</option>
                   <option value="Baker">Baker</option>
