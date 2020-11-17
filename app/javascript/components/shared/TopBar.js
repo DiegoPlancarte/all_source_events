@@ -24,7 +24,7 @@ const TopBar = (props) => {
           <Nav.Link href="/myvendors">My Vendors</Nav.Link>
           <Nav.Link href="/createvendor">Create Vendor</Nav.Link>
           <NavDropdown title="Favorites" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="/my_favorites">All Favorite</NavDropdown.Item>
+            <NavDropdown.Item href="/myfavorites">All Favorite</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="/">Separated link</NavDropdown.Item>
           </NavDropdown>
