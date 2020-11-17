@@ -16,7 +16,7 @@ const VendorInfo = (props) => {
 		return fetch(`/favorites/${favorited.id}` ,{
       headers: {
         'Content-Type': 'application/json',
-        'X-CSRF-TOKEN': props.token
+        'X-CSRF-TOKEN': props.csrf_token
       },
 			method: 'DELETE'
 		})
