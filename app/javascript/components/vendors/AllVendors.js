@@ -13,18 +13,10 @@ const AllVendors = (props) => {
   const venue = require('../../../assets/images/venue')
 
   if (vendorsLoading) {
-    return <div><Spinner animation="border" variant="primary" />Loading...</div>
+    return <div><Spinner animation="border" variant="primary"/>Loading...</div>
   }
 
-  const detailsButton = () => {
-    if (props.logged_in) {
-      return (
-        <Link to={`/vendorinfo/${v.id}`} className="text-white btn btn-primary">Details</Link>
-      )
-    } return (
-        <Button className="text-white btn btn-primary" href={props.sign_in_route}>Details</Button>
-      )
-  }
+  console.log(vendors)
 
   return (
     <React.Fragment>
@@ -51,7 +43,9 @@ const AllVendors = (props) => {
                       <Card.Body>
                         <Card.Title><strong>{v.name}</strong></Card.Title>
                         <Card.Text>{v.category}</Card.Text>
-                        { detailsButton() }
+                        { props.logged_in
+                        ? <Link to={`/vendorinfo/${v.id}`} className="text-white btn btn-primary">Details</Link>
+                        : <Button className="text-white btn btn-primary" href={props.sign_in_route}>Details</Button> }
                       </Card.Body>
                       <Card.Footer>{v.city}, {v.state} {v.zip}</Card.Footer>
                     </Card>

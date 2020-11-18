@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import useRead from '../hooks/useRead'
-import { Container, Row, Col, Card, Button, Spinner } from 'react-bootstrap';
+import { Container, Row, Col, Card, ButtonGroup, Button, Spinner } from 'react-bootstrap';
 
 const MyFavorites = (props) => {
 
   const [ vendors, setVendors, vendorsLoading, vendorErrors ] = useRead('vendors')
   const [ favorites, setFavorites, favoritesLoading, favoriteErrors ] = useRead('favorites')
+  const [ show, setShow ] = useState('All')
+
 
   const baker = require('../../../assets/images/baker')
   const caterer = require('../../../assets/images/caterer')
@@ -21,13 +23,58 @@ const MyFavorites = (props) => {
 
   const favoritesList = vendors.filter(v => favoritesArray.includes(v.id))
 
+  const showAll = () => {
+    setShow('All')
+  }
+
+  const showCaterers = () => {
+    setShow('Caterer')
+  }
+
+  const showBakers = () => {
+    setShow('Baker')
+  }
+
+  const showVenues = () => {
+    setShow('Venue')
+  }
+
+  const showFlorists = () => {
+    setShow('Florist')
+  }
+
+  const filterShow = () => {
+    if (show === 'All') {
+      return favoritesList
+    } else if (show === 'Caterer') {
+      return favoritesList.filter(v => v.category === 'Caterer')
+    } else if (show === 'Baker') {
+      return favoritesList.filter(v => v.category === 'Baker')
+    } else if (show === 'Venue') {
+      return favoritesList.filter(v => v.category === 'Venue')
+    } else if (show === 'Florist') {
+      return favoritesList.filter(v => v.category === 'Florist')
+    }
+  }
+
   return (
     <React.Fragment>
         <Container>
           <h1 className="text-primary" id="header">My Favorites</h1>
           <hr/>
+          <Row>
+            <Col md={{ span: 6, offset: 3 }}>
+              <ButtonGroup aria-label="Basic example" >
+                <Button className="btn btn-secondary text-white px-4" onClick={showAll} >All</Button>
+                <Button className="btn btn-secondary text-white px-4" onClick={showCaterers} >Caterers</Button>
+                <Button className="btn btn-secondary text-white px-4" onClick={showBakers} >Bakers</Button>
+                <Button className="btn btn-secondary text-white px-4" onClick={showVenues} >Venues</Button>
+                <Button className="btn btn-secondary text-white px-4" onClick={showFlorists} >Florists</Button>
+              </ButtonGroup>
+            </Col>
+          </Row>
           <Row md="1" lg="2" xl="3">
-            {favoritesList.map((v,i)=> {
+            {filterShow().map((v,i)=> {
                 let imageName = () => {
                   if (v.category === 'Baker') {
                     return `${baker}`

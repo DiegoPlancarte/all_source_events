@@ -31,11 +31,12 @@ const UserTopBar = (props) => {
           <Nav.Link href="/allvendors">All Vendors</Nav.Link>
           <Nav.Link href="/myvendors">My Vendors</Nav.Link>
           <Nav.Link href="/createvendor">Create Vendor</Nav.Link>
-          <NavDropdown title="Favorites" id="collasible-nav-dropdown">
+          <Nav.Link href="/myfavorites">Favorites</Nav.Link>
+          {/* <NavDropdown title="Favorites" id="collasible-nav-dropdown">
             <NavDropdown.Item href="/myfavorites">All Favorite</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="/">Separated link</NavDropdown.Item>
-          </NavDropdown>
+          </NavDropdown> */}
         </Nav>
         <Nav>
           <Button className="btn bg-white text-secondary" href={sign_out_route}><strong>Sign Out</strong></Button>
