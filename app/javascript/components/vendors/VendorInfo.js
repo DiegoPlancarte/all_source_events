@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import useRead from '../hooks/useRead'
-import useCreate from '../hooks/useCreate'
-import useDelete from '../hooks/useDelete'
+import { Link } from 'react-router-dom';
+import useRead from '../hooks/useRead';
+import useCreate from '../hooks/useCreate';
+import useDelete from '../hooks/useDelete';
 import { Row, Col, CardDeck, Card, Container, Button } from 'react-bootstrap';
+import { IconContext} from 'react-icons';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
 const VendorInfo = (props) => {
 
@@ -22,7 +24,6 @@ const VendorInfo = (props) => {
 		})
 		.then((response)=> {
 			if(response.ok){
-        alert('This vendors has been removed from your favorites!')
         window.location.reload(false)
 			}
 		})
@@ -37,10 +38,18 @@ const VendorInfo = (props) => {
   const favoriteButton = () => {
     if (favorited) {
       return (
-        <Button onClick={deleteFavorite}>Unfavorite</Button>
+        <IconContext.Provider value={{ size: "2.5em", color: '#8c20ba' }}>
+          <div className="p-3">
+            <FaHeart onClick={deleteFavorite}/>
+          </div>
+        </IconContext.Provider>
       )
     } return (
-      <Button onClick={handleFavorite}>Favorite</Button>
+      <IconContext.Provider value={{ size: "2.5em", color: 'grey' }}>
+        <div className="p-3">
+          <FaRegHeart onClick={handleFavorite}/>
+        </div>
+      </IconContext.Provider>
       )
   }
 
@@ -79,10 +88,10 @@ const VendorInfo = (props) => {
           { vendor && 
             <CardDeck>
               <Card border="light" className="shadow">
-                { favoriteButton() }
                 <Row md={1} lg={2}>
                   <Col>
                     <Card.Img className="img-fluid" src={imageName()}/>
+                    { favoriteButton() }
                   </Col>
                   <Col>
                     <Card.Body>
