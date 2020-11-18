@@ -65,11 +65,11 @@ const MyFavorites = (props) => {
           <Row>
             <Col md={{ span: 6, offset: 3 }}>
               <ButtonGroup aria-label="Basic example" >
-                <Button className="btn btn-secondary text-white px-4" onClick={showAll} >All</Button>
-                <Button className="btn btn-secondary text-white px-4" onClick={showCaterers} >Caterers</Button>
-                <Button className="btn btn-secondary text-white px-4" onClick={showBakers} >Bakers</Button>
-                <Button className="btn btn-secondary text-white px-4" onClick={showVenues} >Venues</Button>
-                <Button className="btn btn-secondary text-white px-4" onClick={showFlorists} >Florists</Button>
+                <Button className="btn btn-secondary text-white md-px-4" onClick={showAll} >All</Button>
+                <Button className="btn btn-secondary text-white md-px-4" onClick={showBakers} >Bakers</Button>
+                <Button className="btn btn-secondary text-white md-px-4" onClick={showCaterers} >Caterers</Button>
+                <Button className="btn btn-secondary text-white md-px-4" onClick={showVenues} >Venues</Button>
+                <Button className="btn btn-secondary text-white md-px-4" onClick={showFlorists} >Florists</Button>
               </ButtonGroup>
             </Col>
           </Row>
