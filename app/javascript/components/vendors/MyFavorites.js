@@ -73,7 +73,7 @@ const MyFavorites = (props) => {
               </ButtonGroup>
             </Col>
           </Row>
-          <Row md="1" lg="2" xl="3">
+          <Row xs="1" lg="2" xl="3">
             {filterShow().map((v,i)=> {
                 let imageName = () => {
                   if (v.category === 'Baker') {

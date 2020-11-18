@@ -23,7 +23,7 @@ const MyVendors = (props) => {
         <Container>
           <h1 className="text-primary" id="header">My Vendors</h1>
           <hr/>
-          <Row md="1" lg="2" xl="3">
+          <Row xs="1" lg="2" xl="3">
             {myVendors.map((v,i)=> {
                 let imageName = () => {
                   if (v.category === 'Baker') {

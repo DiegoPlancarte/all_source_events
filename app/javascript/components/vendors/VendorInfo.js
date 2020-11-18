@@ -88,7 +88,7 @@ const VendorInfo = (props) => {
           { vendor && 
             <CardDeck>
               <Card border="light" className="shadow">
-                <Row md={1} lg={2}>
+                <Row xs={1} lg={2}>
                   <Col>
                     <Card.Img className="img-fluid" src={imageName()}/>
                     { favoriteButton() }

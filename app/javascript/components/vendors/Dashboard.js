@@ -30,7 +30,7 @@ const Dashboard = (props) => {
           <h1 className="text-primary" id="header">My Dashboard</h1>
           <hr/>
           <h2 className="text-secondary" id="header">My Favorites</h2>
-          <Row md="1" lg="2" xl="3">
+          <Row xs="1" lg="2" xl="3">
             {favoritesList.map((v,i)=> {
                 let imageName = () => {
                   if (v.category === 'Baker') {
@@ -61,7 +61,7 @@ const Dashboard = (props) => {
           </Row>
           <hr/>
           <h2 className="text-secondary" id="header">My Vendors</h2>
-          <Row md="1" lg="2" xl="3">
+          <Row xs="1" lg="2" xl="3">
             {myVendors.map((v,i)=> {
                 let imageName = () => {
                   if (v.category === 'Baker') {
