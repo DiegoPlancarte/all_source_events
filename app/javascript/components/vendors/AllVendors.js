@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import useRead from '../hooks/useRead'
-import { Container, Row, Col, Card, ButtonGroup, Button, Spinner } from 'react-bootstrap';
+import { Container, Row, Col, Card, ButtonToolbar, ButtonGroup, Button, Spinner } from 'react-bootstrap';
 
 const AllVendors = (props) => {
 
@@ -58,13 +58,15 @@ const AllVendors = (props) => {
           <hr/>
           <Row>
             <Col md={{ span: 6, offset: 3 }}>
-              <ButtonGroup aria-label="Basic example" >
-                <Button className="btn btn-secondary text-white xs-px-4 md-px-4" onClick={showAll} >All</Button>
-                <Button className="btn btn-secondary text-white md-px-4" onClick={showCaterers} >Caterers</Button>
-                <Button className="btn btn-secondary text-white md-px-4" onClick={showBakers} >Bakers</Button>
-                <Button className="btn btn-secondary text-white md-px-4" onClick={showVenues} >Venues</Button>
-                <Button className="btn btn-secondary text-white md-px-4" onClick={showFlorists} >Florists</Button>
-              </ButtonGroup>
+              <ButtonToolbar className="justify-content-center" aria-label="Toolbar with Button groups">
+                <ButtonGroup aria-label="Basic example" >
+                  <Button className="btn btn-secondary text-white md-px-4" onClick={showAll} >All</Button>
+                  <Button className="btn btn-secondary text-white md-px-4" onClick={showCaterers} >Caterers</Button>
+                  <Button className="btn btn-secondary text-white md-px-4" onClick={showBakers} >Bakers</Button>
+                  <Button className="btn btn-secondary text-white md-px-4" onClick={showVenues} >Venues</Button>
+                  <Button className="btn btn-secondary text-white md-px-4" onClick={showFlorists} >Florists</Button>
+                </ButtonGroup>
+              </ButtonToolbar>
             </Col>
           </Row>
           <Row xs={1} lg={2} xl={3}>

@@ -104,7 +104,7 @@ const VendorInfo = (props) => {
                     </Card.Body>
                   </Col>
                 </Row>
-                <div className="py-3">
+                <div className="md-py-3">
                 {creator() && 
                   <div className="text-center">
                   <Link to="/allvendors" className= "btn btn-danger" onClick={ deleteVendor } >Delete Listing</Link>
