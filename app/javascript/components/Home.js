@@ -25,8 +25,8 @@ const Home = (props) => {
       <Container xs={4} className="themed-container">
         <CardDeck style={{display: 'flex', flexDirection: 'column'}} >
           <Card  style={{border: 'none'}}>
-            <Row md={1} lg={2}>
-              <Col md="auto" lg={6}>
+            <Row xs={1} lg={2}>
+              <Col xs="auto" lg={6}>
                 <h2 className="text-center">
                   All Source Events will help thousands of social events planners’ network with local vendors to change direction and forge a new path.
                 </h2>
@@ -39,11 +39,11 @@ const Home = (props) => {
           <br />
           <br />
           <Card style={{border: 'none'}} >
-            <Row md={1} lg={2}>
+            <Row xs={1} lg={2}>
               <Col xs="auto">
                 <Card.Img src={ App } className="img-fluid shadow p-3 mb-5 bg-white rounded" alt="viewing upcoming trips"/>
               </Col>
-              <Col md="auto" lg={6}>
+              <Col xs="auto" lg={6}>
                 <h2 className="text-center">
                   The current process of event management is fragmented for social event planners and businesses involved in the event industry who spend their lives trying to bring joy and happiness to others.
                 </h2>
@@ -53,8 +53,8 @@ const Home = (props) => {
           <br />
           <br />
           <Card style={{border: 'none'}} >
-            <Row md={1} lg={2}>
-              <Col md="auto" lg={6}>
+            <Row xs={1} lg={2}>
+              <Col xs="auto" lg={6}>
                 <h2 className="text-center">
                   Our mission is to provide modern social event planners and local businesses involved in the event industry with an all-encompassing platform to quickly and efficiently get things done simultaneously in order to create phenomenal events.  
                 </h2>
