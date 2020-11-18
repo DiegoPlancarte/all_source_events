@@ -64,6 +64,7 @@ class VendorsController < ApplicationController
                                     :description,
                                     :phone,
                                     :email,
+                                    images: [],
                                     :user_id,
                                     :id,
                                     :created_at,
