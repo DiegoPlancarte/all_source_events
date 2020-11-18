@@ -25,8 +25,8 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Router>
-          { logged_in && <UserTopBar sign_in_route={ sign_in_route } sign_up_route={ sign_up_route } logged_in={ logged_in } sign_out_route={ sign_out_route } edit_account={ edit_account_route } />}
-          { !logged_in && <TopBar sign_in_route={ sign_in_route } sign_up_route={ sign_up_route } logged_in={ logged_in } sign_out_route={ sign_out_route } edit_account={ edit_account_route } />}
+          { logged_in ? <UserTopBar sign_in_route={ sign_in_route } sign_up_route={ sign_up_route } logged_in={ logged_in } sign_out_route={ sign_out_route } edit_account={ edit_account_route } />
+            : <TopBar sign_in_route={ sign_in_route } sign_up_route={ sign_up_route } logged_in={ logged_in } sign_out_route={ sign_out_route } edit_account={ edit_account_route } />}
 
           <Switch>
             <Route path = '/dashboard' render={(props) => <Dashboard {...props} current_user={ current_user } /> }/>

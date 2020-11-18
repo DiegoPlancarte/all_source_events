@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Button from 'react-bootstrap/Button'
+import Logo from 'images/ASE_Logo.png'
 
 const UserTopBar = (props) => {
 
@@ -13,7 +14,16 @@ const UserTopBar = (props) => {
 
   return ( 
     <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
-      <Navbar.Brand href="/">All Source Events</Navbar.Brand>
+      <Navbar.Brand href="/">
+        <img 
+          id="imageSrc" 
+          src={Logo} 
+          className="img-fluid" 
+          width="40"
+          height="40"
+          alt="Logo"
+        />
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">

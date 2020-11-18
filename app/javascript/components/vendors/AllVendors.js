@@ -31,7 +31,7 @@ const AllVendors = (props) => {
         <Container>
           <h1 className="text-primary" id="header">All Vendors</h1>
           <hr/>
-          <Row md="1" lg="2" xl="3">
+          <Row xs={1} lg={2} xl={3}>
             {vendors.map((v,i)=> {
                 let imageName = () => {
                   if (v.category === 'Baker') {
