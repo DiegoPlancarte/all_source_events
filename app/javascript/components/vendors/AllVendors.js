@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import useRead from '../hooks/useRead'
 import { Container, Row, Col, Card, ButtonToolbar, ButtonGroup, Button, Spinner } from 'react-bootstrap';
+import Logo from 'images/ASE_Logo.png'
 
 const AllVendors = (props) => {
 
@@ -14,7 +15,21 @@ const AllVendors = (props) => {
   const venue = require('../../../assets/images/venue')
 
   if (vendorsLoading) {
-    return <div><Spinner animation="border" variant="primary"/>Loading...</div>
+    return <Container>
+              <div style={{textAlign: "center"}}>
+                <img 
+                  id="imageSrc" 
+                  src={Logo} 
+                  className="img-fluid"
+                  width="300"
+                  alt="Logo"
+                />
+                <br/>
+                <div >
+                  <h1 className="text-primary">Loading...</h1>
+                </div>
+              </div>
+            </Container>
   }
 
   const showAll = () => {

@@ -6,6 +6,7 @@ import useDelete from '../hooks/useDelete';
 import { Row, Col, CardDeck, Card, Container, Button } from 'react-bootstrap';
 import { IconContext} from 'react-icons';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import Logo from 'images/ASE_Logo.png'
 
 const VendorInfo = (props) => {
 
@@ -30,7 +31,21 @@ const VendorInfo = (props) => {
 	}
 
   if (vendorLoading && favoritesLoading) {
-    return <div>Loading...</div>
+    return <Container>
+              <div style={{textAlign: "center"}}>
+                <img 
+                  id="imageSrc" 
+                  src={Logo} 
+                  className="img-fluid"
+                  width="300"
+                  alt="Logo"
+                />
+                <br/>
+                <div >
+                  <h1 className="text-primary">Loading...</h1>
+                </div>
+              </div>
+            </Container>
   }
 
   const favorited = favorites.find(v => v.favoritable_id === vendor.id);
