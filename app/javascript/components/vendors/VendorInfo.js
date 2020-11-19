@@ -6,6 +6,7 @@ import useDelete from '../hooks/useDelete';
 import { Row, Col, CardDeck, Card, Container, Button } from 'react-bootstrap';
 import { IconContext} from 'react-icons';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import Logo from 'images/ASE_Logo.png'
 
 const VendorInfo = (props) => {
 
@@ -30,7 +31,21 @@ const VendorInfo = (props) => {
 	}
 
   if (vendorLoading && favoritesLoading) {
-    return <div>Loading...</div>
+    return <Container>
+              <div style={{textAlign: "center"}}>
+                <img 
+                  id="imageSrc" 
+                  src={Logo} 
+                  className="img-fluid"
+                  width="300"
+                  alt="Logo"
+                />
+                <br/>
+                <div >
+                  <h1 className="text-primary">Loading...</h1>
+                </div>
+              </div>
+            </Container>
   }
 
   const favorited = favorites.find(v => v.favoritable_id === vendor.id);
@@ -98,8 +113,8 @@ const VendorInfo = (props) => {
                       <Card.Text className="text-center"> {vendor.category}</Card.Text>
                       <Card.Text className="text-center"> {vendor.name} </Card.Text>
                       <Card.Text className="text-center"> {vendor.city}, {vendor.state} {vendor.zip}</Card.Text>
-                      <Card.Text className="text-center"> <em>Phone:</em> {vendor.phone}</Card.Text>
-                      <Card.Text className="text-center"> <em>Email:</em> {vendor.email} </Card.Text>
+                      <Card.Text className="text-center"> <em>Phone:</em> <a href={`tel:+1{vendor.phone}`}>{vendor.phone}</a></Card.Text>
+                      <Card.Text className="text-center"> <em>Email:</em> <a href={`mailto:+1{vendor.email}`}>{vendor.email}</a> </Card.Text>
                       <Card.Text className="text-center"> <em>Description:</em> {vendor.description} </Card.Text>
                     </Card.Body>
                   </Col>
