@@ -113,8 +113,8 @@ const VendorInfo = (props) => {
                       <Card.Text className="text-center"> {vendor.category}</Card.Text>
                       <Card.Text className="text-center"> {vendor.name} </Card.Text>
                       <Card.Text className="text-center"> {vendor.city}, {vendor.state} {vendor.zip}</Card.Text>
-                      <Card.Text className="text-center"> <em>Phone:</em> {vendor.phone}</Card.Text>
-                      <Card.Text className="text-center"> <em>Email:</em> {vendor.email} </Card.Text>
+                      <Card.Text className="text-center"> <em>Phone:</em> <a href={`tel:+1{vendor.phone}`}>{vendor.phone}</a></Card.Text>
+                      <Card.Text className="text-center"> <em>Email:</em> <a href={`mailto:+1{vendor.email}`}>{vendor.email}</a> </Card.Text>
                       <Card.Text className="text-center"> <em>Description:</em> {vendor.description} </Card.Text>
                     </Card.Body>
                   </Col>
