@@ -69,7 +69,7 @@ const AllVendors = (props) => {
               </ButtonToolbar>
             </Col>
           </Row>
-          <Row xs={1} lg={2} xl={3}>
+          <Row xs={1}>
             {filterShow().map((v,i)=> {
                 let imageName = () => {
                   if (v.category === 'Baker') {
@@ -85,15 +85,22 @@ const AllVendors = (props) => {
                 return (
                   <Col key={v.id} className="vendor-cards">
                     <Card border="light" className="shadow">
-                      <Card.Img className="img-fluid" src={imageName()}/>
-                      <Card.Body>
-                        <Card.Title><strong>{v.name}</strong></Card.Title>
-                        <Card.Text>{v.category}</Card.Text>
-                        { props.logged_in
-                        ? <Link to={`/vendorinfo/${v.id}`} className="text-white btn btn-primary">Details</Link>
-                        : <Button className="text-white btn btn-primary" href={props.sign_in_route}>Details</Button> }
-                      </Card.Body>
-                      <Card.Footer>{v.city}, {v.state} {v.zip}</Card.Footer>
+                    <Row xs={2} md={1}>
+                      <Col xs={12} lg={4}>
+                        <Card.Img className="img-fluid" src={imageName()}/>
+                      </Col>
+                      <Col xs={12} lg={8}>
+                        <Card.Body>
+                          <Card.Title><strong>{v.name}</strong></Card.Title>
+                          <Card.Text>{v.category}</Card.Text>
+                          <Card.Text>{v.city}, {v.state} {v.zip}</Card.Text>
+                          <Card.Text className="text-truncate">{v.description}</Card.Text>
+                          { props.logged_in
+                          ? <Link to={`/vendorinfo/${v.id}`} className="text-white btn btn-primary">Details</Link>
+                          : <Button className="text-white btn btn-primary" href={props.sign_in_route}>Details</Button> }
+                        </Card.Body>
+                      </Col>
+                    </Row>
                     </Card>
                   </Col>
             )})}
