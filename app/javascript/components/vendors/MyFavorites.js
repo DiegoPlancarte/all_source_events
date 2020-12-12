@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import useRead from '../hooks/useRead'
 import { Container, Row, Col, Card, ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
-import Logo from 'images/ASE_Logo.png'
+import Loading from '../shared/Loading';
 
 const MyFavorites = (props) => {
 
@@ -17,21 +17,7 @@ const MyFavorites = (props) => {
   const venue = require('../../../assets/images/venue')
 
   if (vendorsLoading) {
-    return <Container>
-              <div style={{textAlign: "center"}}>
-                <img 
-                  id="imageSrc" 
-                  src={Logo} 
-                  className="img-fluid"
-                  width="300"
-                  alt="Logo"
-                />
-                <br/>
-                <div >
-                  <h1 className="text-primary">Loading...</h1>
-                </div>
-              </div>
-            </Container>
+    return (<Loading/>)
   }
 
   const favoritesArray = favorites.map(v => {return v.favoritable_id})

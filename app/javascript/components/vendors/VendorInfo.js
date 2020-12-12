@@ -6,7 +6,6 @@ import useDelete from '../hooks/useDelete';
 import { Row, Col, CardDeck, Card, Container, Button } from 'react-bootstrap';
 import { IconContext} from 'react-icons';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
-import Logo from 'images/ASE_Logo.png'
 import Loading from '../shared/Loading';
 
 const VendorInfo = (props) => {

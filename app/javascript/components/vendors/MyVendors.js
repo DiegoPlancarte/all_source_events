@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import useRead from '../hooks/useRead'
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import Logo from 'images/ASE_Logo.png'
+import Loading from '../shared/Loading';
 
 const MyVendors = (props) => {
 
@@ -16,21 +16,7 @@ const MyVendors = (props) => {
   const venue = require('../../../assets/images/venue')
 
   if (vendorsLoading) {
-    return <Container>
-              <div style={{textAlign: "center"}}>
-                <img 
-                  id="imageSrc" 
-                  src={Logo} 
-                  className="img-fluid"
-                  width="300"
-                  alt="Logo"
-                />
-                <br/>
-                <div >
-                  <h1 className="text-primary">Loading...</h1>
-                </div>
-              </div>
-            </Container>
+    return (<Loading/>)
   }
 
   return (
