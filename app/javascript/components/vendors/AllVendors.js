@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import useRead from '../hooks/useRead'
 import { Container, Row, Col, Card, ButtonToolbar, ButtonGroup, Button, Spinner } from 'react-bootstrap';
+import Loading from '../shared/Loading';
 
 const AllVendors = (props) => {
 
