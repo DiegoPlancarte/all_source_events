@@ -9,14 +9,14 @@ import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import Loading from '../shared/Loading';
 
 const VendorInfo = (props) => {
-
+  
   const [ vendor, setVendor, vendorLoading, vendorErrors ] = useRead(`vendors/${props.match.params.id}`)
   const [ favorites, setFavorites, favoritesLoading, favoriteErrors ] = useRead('favorites')
   const [ createFavorite ] = useCreate('favorites', props, 'refresh')
   const [ deleteVendor ] = useDelete(`vendors/${props.match.params.id}`, props, 'allvendors')
-
+  
   const deleteFavorite = ()=> {
-		return fetch(`/favorites/${favorited.id}` ,{
+    return fetch(`/favorites/${favorited.id}` ,{
       headers: {
         'Content-Type': 'application/json',
         'X-CSRF-TOKEN': props.csrf_token
@@ -24,18 +24,18 @@ const VendorInfo = (props) => {
 			method: 'DELETE'
 		})
 		.then((response)=> {
-			if(response.ok){
+      if(response.ok){
         window.location.reload(false)
 			}
 		})
 	}
-
+  
   if (vendorLoading && favoritesLoading) {
     return (<Loading/>)
   }
-
+  
   const favorited = favorites.find(v => v.favoritable_id === vendor.id);
-
+  
   const favoriteButton = () => {
     if (favorited) {
       return (
@@ -52,37 +52,38 @@ const VendorInfo = (props) => {
         </div>
       </IconContext.Provider>
       )
-  }
-
-  const creator = () => {
-    return props.current_user.id === vendor.user_id
-  }
-
-  const handleFavorite = () => {
-    const favoriteTemplate = {favoritable_type: 'Vendor', favoritor_type: 'User' }; 
-    const value =  { favoritor_id: props.current_user.id, favoritable_id: vendor.id }; 
-    createFavorite({...favoriteTemplate, ...value})
-  }
-
-  const baker = require('../../../assets/images/baker')
-  const caterer = require('../../../assets/images/caterer')
-  const florist = require('../../../assets/images/florist')
-  const venue = require('../../../assets/images/venue')
-
-  let imageName = () => {
-    if (vendor.category === 'Baker') {
-      return `${baker}`
-    } else if (vendor.category === 'Caterer') {
-      return `${caterer}`
-    } else if (vendor.category === 'Florist') {
-      return `${florist}`
-    } else if (vendor.category === 'Venue') {
-      return `${venue}`
     }
-  }
-
-  return (
-    <React.Fragment>
+    
+    const creator = () => {
+      return props.current_user.id === vendor.user_id
+    }
+    
+    const handleFavorite = () => {
+      const favoriteTemplate = {favoritable_type: 'Vendor', favoritor_type: 'User' }; 
+      const value =  { favoritor_id: props.current_user.id, favoritable_id: vendor.id }; 
+      createFavorite({...favoriteTemplate, ...value})
+    }
+    
+    const baker = require('../../../assets/images/baker')
+    const caterer = require('../../../assets/images/caterer')
+    const florist = require('../../../assets/images/florist')
+    const venue = require('../../../assets/images/venue')
+    
+    let imageName = () => {
+      if (vendor.category === 'Baker') {
+        return `${baker}`
+      } else if (vendor.category === 'Caterer') {
+        return `${caterer}`
+      } else if (vendor.category === 'Florist') {
+        return `${florist}`
+      } else if (vendor.category === 'Venue') {
+        return `${venue}`
+      }
+    }
+    console.log(vendor)
+    
+    return (
+      <React.Fragment>
         <Container>
           <h1 className="text-primary" id="header">Vendor Details</h1>
           <hr/>
@@ -92,6 +93,7 @@ const VendorInfo = (props) => {
                 <Row xs={1} lg={2}>
                   <Col>
                     <Card.Img className="img-fluid" src={imageName()}/>
+                    <img style={{width: "560px", height: "400px"}} src={vendor.photo_url}/>
                     { favoriteButton() }
                   </Col>
                   <Col>

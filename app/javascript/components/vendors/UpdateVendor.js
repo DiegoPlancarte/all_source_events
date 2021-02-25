@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 import useRead from '../hooks/useRead'
 import useUpdate from '../hooks/useUpdate'
+import ActiveStorageProvider from 'react-activestorage-provider'
 import useForm from '../hooks/useForm'
 
 const UpdateVendor = (props) => {
@@ -198,6 +199,58 @@ const UpdateVendor = (props) => {
             />
           </Form.Group>
       </Form>
+      {vendor &&
+          <div>
+            <h1>Cat: {vendor.name} </h1>
+            { vendor && vendor.photo_url &&
+              <div>
+                <h2>The Avatar is: </h2>
+                <img src={vendor.photo_url} />
+              </div>
+            }
+            <ActiveStorageProvider
+              endpoint={{
+                path: `/vendors/${vendor.id}`,
+                model: 'Vendor',
+                attribute: 'photo',
+                method: 'PUT',
+              }}
+              // onSubmit={handleSubmit()}
+              render={({ handleUpload, uploads, ready }) => (
+                <div>
+                  <input
+                    type="file"
+                    disabled={!ready}
+                    onChange={e => handleUpload(e.currentTarget.files)}
+                  />
+
+                  {uploads.map(upload => {
+                    switch (upload.state) {
+                      case 'waiting':
+                        return <p key={upload.id}>Waiting to upload {upload.file.name}</p>
+                      case 'uploading':
+                        return (
+                          <p key={upload.id}>
+                            Uploading {upload.file.name}: {upload.progress}%
+                          </p>
+                        )
+                      case 'error':
+                        return (
+                          <p key={upload.id}>
+                            Error uploading {upload.file.name}: {upload.error}
+                          </p>
+                        )
+                      case 'finished':
+                        return (
+                          <p key={upload.id}>Finished uploading {upload.file.name}</p>
+                        )
+                    }
+                  })}
+                </div>
+              )}
+            />
+          </div>
+        }
           <Button className="btn btn-primary text-white" onClick={ handleSubmit }>
             Submit
           </Button>
