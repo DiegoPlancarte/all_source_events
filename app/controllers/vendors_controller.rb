@@ -12,7 +12,7 @@ class VendorsController < ApplicationController
   # GET /vendors/1
   # GET /vendors/1.json
   def show
-    render json: @vendor
+    # render json: @vendor
   end
 
   # GET /vendors/new
@@ -35,9 +35,9 @@ class VendorsController < ApplicationController
   # PATCH/PUT /vendors/1.json
   def update
     @vendor.update(vendor_params)
-    if @vendor.valid?
-      render json: @vendor
-    end
+    # if @vendor.valid?
+    #   render 'vendors/show.json.jbuilder'
+    # end
   end
 
   # DELETE /vendors/1

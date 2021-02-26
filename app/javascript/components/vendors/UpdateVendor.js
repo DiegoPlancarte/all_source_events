@@ -201,10 +201,10 @@ const UpdateVendor = (props) => {
       </Form>
       {vendor &&
           <div>
-            <h1>Cat: {vendor.name} </h1>
+            <h1>Vendor: {vendor.name} </h1>
             { vendor && vendor.photo_url &&
               <div>
-                <h2>The Avatar is: </h2>
+                <h2>The photo is: </h2>
                 <img src={vendor.photo_url} />
               </div>
             }
