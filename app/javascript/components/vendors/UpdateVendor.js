@@ -215,7 +215,6 @@ const UpdateVendor = (props) => {
                 attribute: 'photo',
                 method: 'PUT',
               }}
-              // onSubmit={handleSubmit()}
               render={({ handleUpload, uploads, ready }) => (
                 <div>
                   <input

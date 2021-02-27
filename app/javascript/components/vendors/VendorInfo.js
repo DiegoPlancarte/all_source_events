@@ -92,8 +92,9 @@ const VendorInfo = (props) => {
               <Card border="light" className="shadow">
                 <Row xs={1} lg={2}>
                   <Col>
-                    <Card.Img className="img-fluid" src={imageName()}/>
-                    <img style={{width: "560px", height: "400px"}} src={vendor.photo_url}/>
+                    { vendor.photo_url 
+                    ? <Card.Img className="img-fluid" src={vendor.photo_url}/>
+                    : <Card.Img className="img-fluid" src={imageName()}/>}
                     { favoriteButton() }
                   </Col>
                   <Col>

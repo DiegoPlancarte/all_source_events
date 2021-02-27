@@ -19,6 +19,8 @@ const MyVendors = (props) => {
     return (<Loading/>)
   }
 
+  console.log(vendors)
+
   return (
     <React.Fragment>
         <Container>
@@ -40,7 +42,9 @@ const MyVendors = (props) => {
                 return (
                   <Col key={v.id} className="vendor-cards">
                     <Card border="light" className="shadow">
-                      <Card.Img className="img-fluid" src={imageName()}/>
+                      { v.photo_url 
+                      ? <Card.Img className="img-fluid" src={v.photo_url}/>
+                      : <Card.Img className="img-fluid" src={imageName()}/>}
                       <Card.Body>
                         <Card.Title><strong>{v.name}</strong></Card.Title>
                         <Card.Text>{v.category}</Card.Text>

@@ -88,7 +88,9 @@ const AllVendors = (props) => {
                     <Card border="light" className="shadow">
                     <Row xs={2} md={1}>
                       <Col xs={12} lg={4}>
-                        <Card.Img className="img-fluid" src={imageName()}/>
+                        { v.photo_url 
+                        ? <Card.Img className="img-fluid" src={v.photo_url}/>
+                        : <Card.Img className="img-fluid" src={imageName()}/>}
                       </Col>
                       <Col xs={12} lg={8}>
                         <Card.Body>

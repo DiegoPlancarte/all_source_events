@@ -6,13 +6,11 @@ class VendorsController < ApplicationController
   # GET /vendors.json
   def index
     @vendors = Vendor.all
-    render json: @vendors
   end
   
   # GET /vendors/1
   # GET /vendors/1.json
   def show
-    # render json: @vendor
   end
 
   # GET /vendors/new
