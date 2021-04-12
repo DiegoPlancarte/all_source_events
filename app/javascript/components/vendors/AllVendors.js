@@ -86,11 +86,11 @@ const AllVendors = (props) => {
                 return (
                   <Col key={v.id} className="vendor-cards">
                     <Card border="light" className="shadow">
-                    <Row xs={2} md={1}>
+                    <Row xs={2} md={1} style={{ overflow: 'hidden'}}>
                       <Col xs={12} lg={4}>
                         { v.photo_url 
                         ? <Card.Img className="img-fluid" src={v.photo_url}/>
-                        : <Card.Img className="img-fluid" src={imageName()}/>}
+                        : <Card.Img src={imageName()}/>}
                       </Col>
                       <Col xs={12} lg={8}>
                         <Card.Body>
